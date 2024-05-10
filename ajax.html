@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax request</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // xml,json
+
+        const request = new XMLHttpRequest();
+
+        request.open('GET',"https://restcountries.com/v3.1/name/turkey" );
+        request.send();
+
+        // async
+        
+        request.addEventListener("load", function(){
+            const data = this.responseText
+            console.log(data) // aradigimiz cevaplar response nin altinda oldugu icin
+            console.log(typeof data) // string turunde oldugu icin json a cevirmemiz lazim
+        })
+
+    </script>
+
+
+
+</body>
+</html>
