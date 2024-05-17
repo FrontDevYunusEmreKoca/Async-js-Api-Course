@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callback</title>
+  </head>
+  <body>
+    <script>
+      // login     // once login sonra post sonra post olusturma hepsi bir surec ve birbirini takip eder
+      // post
+      // create post
+
+      //siparis
+      //siparis hazirlama sureci
+      // teslimat
+
+      // bir surecin bitip diger adimin baslamasi icin bir uyarici verilmesi gerekir bunlari da  //callback, promise , asyc-await yapariz
+
+      // 'console.log("start")
+      // const serverStatus = false;
+
+      // const login = (username,pasword,successFn, errorFn) =>{
+      //     setTimeout(() => {
+      //         if (serverStatus){
+      //             successFn ({username:username,email:"info@yunusemrekoca.com"})
+      //         }
+      //         else {
+      //             errorFn("sercer kapali")
+      //         }
+
+      //     },1000);
+      // }
+
+      // const getpostByUsername =(username,callback ) =>{
+      //     setTimeout(()=>{
+      //         successFn(["post-1", "post-2", "post-3" ]);
+      //     },2000)
+      // }
+
+      // const getPostDetails = (post, callback) => {
+      //     setTimeout(() => {
+      //         successFn("post details");
+      //     },1000)
+      // }
+
+      //  login("yunusemre","12345",user => {
+      //     console.log(user.username)
+      //     console.log(user.email)
+
+      //     getpostByUsername(user.username,(post) =>{
+      //         console.log(post)
+
+      //         getPostDetails (post[0], (details) => {
+      //         console.log(details);
+      //          });
+      //     });
+
+      // },error);
+      // function error (msg){
+      //     	console.log(msg)
+      // }
+
+      // //callback hell
+
+      // console.log("end")'
+
+      //PROMISE
+
+      const serverStatus = false;
+      const promise = new Promise((resolve, reject) => {
+        // resolve basarili oldugu zaman calisacak fonksiyon reject ise false oldugu zamanki
+        setTimeout(() => {
+          if (serverStatus) {
+            resolve({ username: "yunusEmre" });
+          } else {
+            reject("login error");
+          }
+        });
+      },2000);
+
+      promise.then(user => { // resolve ile donen icerigi alirim then
+        console.log(user)
+      }).catch(err =>{
+        console.log(err)
+      }) 
+
+
+    </script>
+  </body>
+</html>
